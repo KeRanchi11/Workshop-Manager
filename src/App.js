@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import AuthPage from './components/AuthPage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminPanel from "./components/AdminPanel";
+import UserPanel from "./components/UserPanel";
 import './App.css';
+import SchedulePanel from './components/SchedulePanel';
+import AdminSchedulePanel from './components/AdminSchedulePanel';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/schedule" element={<SchedulePanel />} />
+        <Route path="/adminschedule" element={<AdminSchedulePanel />} />
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/user/:id" element={<UserPanel />} />
+        <Route path="/workshops/:user_id" element={<SchedulePanel />} />
+      </Routes>
+    </Router>
   );
 }
 
