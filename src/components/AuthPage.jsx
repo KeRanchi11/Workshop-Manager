@@ -428,7 +428,7 @@ const RegisterForm = () => {
               required
             >
               <option value="user">کاربر عادی</option>
-              <option value="admin">ادمین</option>
+              {/* <option value="admin disabled">ادمین</option> */}
             </Form.Select>
             <Form.Control.Feedback type="invalid">{errors.role}</Form.Control.Feedback>
           </FloatingLabel>
