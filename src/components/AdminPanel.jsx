@@ -64,6 +64,10 @@ const AdminPanel = () => {
     navigate("/adminschedule"); // فرض می‌کنیم مسیر AdminSchedulePanel.jsx `/schedule` است
   };
 
+  const handleEditPage = () => {
+    navigate("/select-workshop"); // فرض می‌کنیم مسیر صفحه ویرایش `/adminedit` باشد
+  };
+
   if (loading) {
     return (
       <div className="text-center mt-5">
@@ -88,6 +92,11 @@ const AdminPanel = () => {
         <Button variant="danger" size="sm" onClick={handleLogout} className="me-2">
           خروج
         </Button>
+
+        <Button variant="warning" size="sm" onClick={handleEditPage}>
+          ویرایش
+        </Button>
+
         <Button variant="primary" size="sm" onClick={handleSchedulePage}>
           مشاهده برنامه هفتگی
         </Button>

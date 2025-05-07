@@ -1,0 +1,627 @@
+[07-May-2025 12:01:56 Europe/Berlin] Database connection successful
+[07-May-2025 12:01:56 Europe/Berlin] Received POST input: Array
+(
+    [workshop_id] => 10
+    [phases] => Array
+        (
+            [0] => Array
+                (
+                    [phase] => F1
+                    [material] => ماده اولیه
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۱۸
+                            [1] => ۱۴۰۴-۰۲-۱۹
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۱۸] => 2
+                            [۱۴۰۴-۰۲-۱۹] => 3
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [phase] => F2
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [phase] => F3
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [phase] => F4
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [phase] => F5
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [phase] => F6
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+
+[07-May-2025 12:01:56 Europe/Berlin] Deleted existing schedules for workshop_id: 10
+[07-May-2025 12:01:56 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۱۸
+[07-May-2025 12:01:56 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۱۹
+[07-May-2025 12:01:56 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F2
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:01:56 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F3
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:01:56 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F4
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:01:56 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F5
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:01:56 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F6
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:01:56 Europe/Berlin] Transaction committed successfully
+[07-May-2025 12:03:05 Europe/Berlin] Database connection successful
+[07-May-2025 12:03:05 Europe/Berlin] Received POST input: Array
+(
+    [workshop_id] => 10
+    [phases] => Array
+        (
+            [0] => Array
+                (
+                    [phase] => F1
+                    [material] => ماده یک
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۱۸
+                            [1] => ۱۴۰۴-۰۲-۱۹
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۱۸] => 6
+                            [۱۴۰۴-۰۲-۱۹] => 7
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [phase] => F2
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [phase] => F3
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [phase] => F4
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [phase] => F5
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [phase] => F6
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+
+[07-May-2025 12:03:05 Europe/Berlin] Deleted existing schedules for workshop_id: 10
+[07-May-2025 12:03:05 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۱۸
+[07-May-2025 12:03:05 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۱۹
+[07-May-2025 12:03:05 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F2
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:03:05 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F3
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:03:05 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F4
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:03:05 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F5
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:03:05 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F6
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:03:05 Europe/Berlin] Transaction committed successfully
+[07-May-2025 12:04:09 Europe/Berlin] Database connection successful
+[07-May-2025 12:04:09 Europe/Berlin] Received POST input: Array
+(
+    [workshop_id] => 10
+    [phases] => Array
+        (
+            [0] => Array
+                (
+                    [phase] => F1
+                    [material] => ماده یک
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۱۸
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۱۸] => 6
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [phase] => F2
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [phase] => F3
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [phase] => F4
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [phase] => F5
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [phase] => F6
+                    [material] => 
+                    [selectedDates] => Array
+                        (
+                        )
+
+                    [quantities] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+
+[07-May-2025 12:04:09 Europe/Berlin] Deleted existing schedules for workshop_id: 10
+[07-May-2025 12:04:09 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۱۸
+[07-May-2025 12:04:09 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F2
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:04:09 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F3
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:04:09 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F4
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:04:09 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F5
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:04:09 Europe/Berlin] Skipping phase due to empty material or dates: Array
+(
+    [phase] => F6
+    [material] => 
+    [selectedDates] => Array
+        (
+        )
+
+    [quantities] => Array
+        (
+        )
+
+)
+
+[07-May-2025 12:04:09 Europe/Berlin] Transaction committed successfully
+[07-May-2025 12:05:34 Europe/Berlin] Database connection successful
+[07-May-2025 12:05:34 Europe/Berlin] Received POST input: Array
+(
+    [workshop_id] => 10
+    [phases] => Array
+        (
+            [0] => Array
+                (
+                    [phase] => F1
+                    [material] => ماده یک
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۱۸
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۱۸] => 6
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [phase] => F2
+                    [material] => ماده 2
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۱۹
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۱۹] => 1
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [phase] => F3
+                    [material] => ماده 3
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۲۰
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۲۰] => 2
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [phase] => F4
+                    [material] => ماده 4
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۲۱
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۲۱] => 3
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [phase] => F5
+                    [material] => ماده 5
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۲۲
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۲۲] => 4
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [phase] => F6
+                    [material] => ماده  6
+                    [selectedDates] => Array
+                        (
+                            [0] => ۱۴۰۴-۰۲-۲۳
+                        )
+
+                    [quantities] => Array
+                        (
+                            [۱۴۰۴-۰۲-۲۳] => 5
+                        )
+
+                )
+
+        )
+
+)
+
+[07-May-2025 12:05:34 Europe/Berlin] Deleted existing schedules for workshop_id: 10
+[07-May-2025 12:05:34 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۱۸
+[07-May-2025 12:05:34 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۱۹
+[07-May-2025 12:05:34 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۲۰
+[07-May-2025 12:05:34 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۲۱
+[07-May-2025 12:05:34 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۲۲
+[07-May-2025 12:05:34 Europe/Berlin] Invalid date format for date: ۱۴۰۴-۰۲-۲۳
+[07-May-2025 12:05:34 Europe/Berlin] Transaction committed successfully
