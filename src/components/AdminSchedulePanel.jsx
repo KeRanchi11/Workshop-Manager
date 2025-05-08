@@ -8,11 +8,15 @@ const AdminSchedulePanel = () => {
   const [dates, setDates] = useState([]);
   const [workshops, setWorkshops] = useState([]);
   const [schedules, setSchedules] = useState({});
-  const [selectedDate, setSelectedDate] = useState(null); // اضافه شد
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [currentWeekStart, setCurrentWeekStart] = useState(new Date()); // شروع هفته جاری
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("http://localhost/workshop-manager/src/backend/getScheduleData.php")
+  // تابع دریافت داده‌ها از بک‌اند
+  const fetchSchedulesForWeek = (weekStart) => {
+    setLoading(true);
+    const formattedStart = weekStart.toISOString().slice(0, 10); // تبدیل تاریخ شروع هفته به فرمت مناسب
+    fetch(`http://localhost/workshop-manager/src/backend/getScheduleData.php?weekStart=${formattedStart}`)
       .then((res) => res.json())
       .then((data) => {
         setDates(data.dates);
@@ -24,14 +28,48 @@ const AdminSchedulePanel = () => {
         setLoading(false);
         console.error("Error:", err);
       });
-  }, []);
+  };
 
-  // داده‌ها: جدول کامل یا فقط یک تاریخ
+  // بارگذاری داده‌ها برای هفته جاری هنگام بارگذاری کامپوننت
+  useEffect(() => {
+    fetchSchedulesForWeek(currentWeekStart);
+  }, [currentWeekStart]);
+
+  // محاسبه تاریخ‌های هفته جاری
+  const getWeekDates = (start) => {
+    const weekDates = [];
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(start);
+      date.setDate(start.getDate() + i);
+      weekDates.push(date.toISOString().slice(0, 10));
+    }
+    return weekDates;
+  };
+
+  // حرکت به هفته بعد
+  const goToNextWeek = () => {
+    const newStart = new Date(currentWeekStart);
+    newStart.setDate(currentWeekStart.getDate() + 7);
+    setCurrentWeekStart(newStart);
+  };
+
+  // حرکت به هفته قبلی (محدود به هفته جاری)
+  const goToPreviousWeek = () => {
+    const newStart = new Date(currentWeekStart);
+    newStart.setDate(currentWeekStart.getDate() - 7);
+    if (newStart <= new Date()) {
+      // جلوگیری از حرکت به قبل از هفته جاری
+      setCurrentWeekStart(new Date());
+    } else {
+      setCurrentWeekStart(newStart);
+    }
+  };
+
   const transformData = () => {
     if (!selectedDate) {
       return workshops.map((workshop) => {
         const row = { "نام کارگاه": workshop.workshop_name };
-        dates.forEach((date) => {
+        getWeekDates(currentWeekStart).forEach((date) => {
           const items = schedules[workshop.id]?.[date] ?? [];
           row[date] = items.length
             ? items.map((item) => `${item.material_name}: ${item.quantity}`).join(", ")
@@ -40,7 +78,6 @@ const AdminSchedulePanel = () => {
         return row;
       });
     } else {
-      // فقط اطلاعات یک تاریخ خاص
       return workshops.map((workshop) => {
         const row = { "نام کارگاه": workshop.workshop_name };
         const items = schedules[workshop.id]?.[selectedDate] ?? [];
@@ -52,7 +89,6 @@ const AdminSchedulePanel = () => {
     }
   };
 
-  // خروجی اکسل: جدول کامل یا فقط همان تاریخ  
   const exportToExcel = () => {
     const data = transformData();
     const ws = XLSX.utils.json_to_sheet(data);
@@ -71,18 +107,19 @@ const AdminSchedulePanel = () => {
 
   const transposedData = transformData();
 
-  // عنوان جدول دینامیک بر اساس صفحه یا تاریخ انتخابی
   const tableTitle = selectedDate
     ? `مواد اولیه مورد نیاز کارگاه‌ها در تاریخ  ${new Date(selectedDate).toLocaleDateString("fa-IR-u-nu-latn", {
         weekday: "long",
         month: "long",
         day: "numeric",
       })}`
-    : "برنامه هفتگی مواد اولیه کارگاه‌ها";
+    : `برنامه هفتگی مواد اولیه کارگاه‌ها از تاریخ ${new Date(currentWeekStart).toLocaleDateString(
+        "fa-IR-u-nu-latn",
+        { month: "long", day: "numeric" }
+      )}`;
 
   return (
     <Container className="mt-4 mb-5">
-      {/* دکمه‌ها */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <Button variant="info" size="sm" onClick={() => navigate("/admin")} className="me-2">
           بازگشت به پنل مدیریت
@@ -103,14 +140,20 @@ const AdminSchedulePanel = () => {
           </Button>
         </div>
       </div>
-
-      {/* کارت جدول */}
+      {/* دکمه‌های حرکت بین هفته‌ها */}
+      <div className="d-flex justify-content-between mb-4">
+        <Button variant="primary" size="sm" onClick={goToPreviousWeek}>
+          هفته قبلی
+        </Button>
+        <Button variant="primary" size="sm" onClick={goToNextWeek}>
+          هفته بعدی
+        </Button>
+      </div>
       <Card className="shadow rounded-3" style={{ border: "none" }}>
         <Card.Body>
           <Card.Title className="mb-3 text-end" style={{ fontWeight: 700, fontSize: "1.3rem" }}>
             {tableTitle}
           </Card.Title>
-          {/* جدول */}
           <div className="table-responsive">
             <Table bordered hover className="align-middle mb-0" style={{ background: "#fbfcff" }}>
               <thead className="bg-info text-white">
@@ -131,7 +174,7 @@ const AdminSchedulePanel = () => {
                           })}
                         </th>
                       )
-                    : dates.map((date) => (
+                    : getWeekDates(currentWeekStart).map((date) => (
                         <th
                           key={date}
                           style={{ whiteSpace: "nowrap", textAlign: "center", cursor: "pointer" }}
@@ -151,7 +194,7 @@ const AdminSchedulePanel = () => {
                 {workshops.map((workshop) => (
                   <tr key={workshop.id}>
                     <td style={{ textAlign: "center", fontWeight: 600 }}>{workshop.workshop_name}</td>
-                    {(selectedDate ? [selectedDate] : dates).map((date) => {
+                    {(selectedDate ? [selectedDate] : getWeekDates(currentWeekStart)).map((date) => {
                       const items = schedules[workshop.id]?.[date] ?? [];
                       return (
                         <td
@@ -186,30 +229,6 @@ const AdminSchedulePanel = () => {
           </div>
         </Card.Body>
       </Card>
-      {/* استایل‌ها */}
-      <style>{`
-        .table th, .table td {
-          vertical-align: middle !important;
-          text-align: center;
-        }
-        .table th {
-          background: #40bfff !important;
-          color: white !important;
-        }
-        .table th[title] {
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-        .table th[title]:hover {
-          background: #0ea2fd !important;
-        }
-        .container-card {
-          width: 100%;
-        }
-        .card-title {
-          text-align: right !important;
-        }
-      `}</style>
     </Container>
   );
 };

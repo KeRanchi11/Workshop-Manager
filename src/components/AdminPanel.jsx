@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Button, Modal, Spinner, Container, Row, Col, Badge } from "react-bootstrap";
+import { Card, Button, Modal, Spinner, Container, Row, Col, Badge, ButtonGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom"; // برای مدیریت مسیرها (Route Navigation)
 
 const cardStyles = {
@@ -88,18 +88,21 @@ const AdminPanel = () => {
   return (
     <Container className="mt-5 mb-5">
       {/* دکمه خروج و جابه‌جایی به برنامه کارگاه‌ها */}
-      <div className="buttons-group text-end mb-3">
-        <Button variant="danger" size="sm" onClick={handleLogout} className="me-2">
-          خروج
-        </Button>
+      <div className="d-flex justify-content-end mb-3">
+        <ButtonGroup>
+          <Button variant="danger" size="sm" onClick={handleLogout} className="me-2">
+            خروج
+          </Button>
 
-        <Button variant="warning" size="sm" onClick={handleEditPage}>
-          ویرایش
-        </Button>
+          <Button variant="warning" size="sm" onClick={handleEditPage} className="me-2">
+            ویرایش
+          </Button>
 
-        <Button variant="primary" size="sm" onClick={handleSchedulePage}>
-          مشاهده برنامه هفتگی
-        </Button>
+          <Button variant="primary" size="sm" onClick={handleSchedulePage}>
+            مشاهده برنامه هفتگی
+          </Button>
+        </ButtonGroup>
+
       </div>
 
       <h2 className="text-center mb-4" style={{ fontWeight: 700 }}>پنل مدیریت کاربران و کارگاه‌ها</h2>
@@ -136,32 +139,32 @@ const AdminPanel = () => {
         centered
         dialogClassName="modern-modal"
       >
-<Modal.Header
-  className="bg-info text-white d-flex flex-row-reverse align-items-center justify-content-between"
-  style={{ direction: "rtl" }}
->
-  <Button
-    variant="link"
-    onClick={handleCloseModal}
-    style={{
-      color: "white",
-      fontSize: "1.5rem",
-      textDecoration: "none",
-      marginLeft: 8,
-      marginRight: 0,
-      padding: 0,
-      border: "none",
-      boxShadow: "none"
-    }}
-    aria-label="بستن"
-  >
-    ×
-  </Button>
-  <Modal.Title style={{ fontWeight: 600, fontSize: "1.2rem" }}>
-    اطلاعات کارگاه:{" "}
-    {selectedWorkshop && selectedWorkshop.workshop_id ? selectedWorkshop.workshop_name : ""}
-  </Modal.Title>
-</Modal.Header>
+        <Modal.Header
+          className="bg-info text-white d-flex flex-row-reverse align-items-center justify-content-between"
+          style={{ direction: "rtl" }}
+        >
+          <Button
+            variant="link"
+            onClick={handleCloseModal}
+            style={{
+              color: "white",
+              fontSize: "1.5rem",
+              textDecoration: "none",
+              marginLeft: 8,
+              marginRight: 0,
+              padding: 0,
+              border: "none",
+              boxShadow: "none"
+            }}
+            aria-label="بستن"
+          >
+            ×
+          </Button>
+          <Modal.Title style={{ fontWeight: 600, fontSize: "1.2rem" }}>
+            اطلاعات کارگاه:{" "}
+            {selectedWorkshop && selectedWorkshop.workshop_id ? selectedWorkshop.workshop_name : ""}
+          </Modal.Title>
+        </Modal.Header>
 
         <Modal.Body dir="rtl">
           {selectedWorkshop && selectedWorkshop.workshop_id ? (

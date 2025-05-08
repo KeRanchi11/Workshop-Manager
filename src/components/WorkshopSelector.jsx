@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Table, Button, Alert } from "react-bootstrap";
+import { Container, Table, Button, Alert, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const WorkshopSelector = () => {
@@ -39,20 +39,20 @@ const WorkshopSelector = () => {
       <Table bordered hover>
         <thead>
           <tr>
-            <th>نام کارگاه</th>
-            <th>نام مدیر</th>
-            <th>حوزه فعالیت</th>
-            <th>عملیات</th>
+            <th className="text-center align-middle">نام کارگاه</th>
+            <th className="text-center align-middle">نام مدیر</th>
+            <th className="text-center align-middle">حوزه فعالیت</th>
+            <th className="text-center align-middle">عملیات</th>
           </tr>
         </thead>
         <tbody>
           {workshops.length > 0 ? (
             workshops.map((workshop) => (
               <tr key={workshop.id}>
-                <td>{workshop.workshop_name}</td>
-                <td>{workshop.ceo_name}</td>
-                <td>{workshop.field_of_work}</td>
-                <td>
+                <td className="text-center align-middle">{workshop.workshop_name}</td>
+                <td className="text-center align-middle">{workshop.ceo_name}</td>
+                <td className="text-center align-middle">{workshop.field_of_work}</td>
+                <td className="text-center align-middle">
                   <Button
                     variant="primary"
                     onClick={() => handleSelectWorkshop(workshop.id)}
@@ -64,14 +64,24 @@ const WorkshopSelector = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="4" className="text-center">
+              <td colSpan="4" className="text-center align-middle">
                 کارگاهی یافت نشد
               </td>
             </tr>
           )}
         </tbody>
       </Table>
+
+      <Row className="mt-3">
+        <Col className="text-start">
+          <Button variant="secondary" onClick={() => navigate('/admin')}>
+            بازگشت
+          </Button>
+        </Col>
+      </Row>
+
     </Container>
+
   );
 };
 
